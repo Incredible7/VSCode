@@ -1,0 +1,36 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch ServerFrame",
+            "request": "launch",
+            "mainClass": "GUI.ServerFrame",
+            "projectName": "VS Code JAVA_c82685d"
+        },
+        {
+            "type": "java",
+            "name": "Launch Test",
+            "request": "launch",
+            "mainClass": "Cargo.Test",
+            "projectName": "VS Code JAVA_c82685d"
+        },
+        {
+            "type": "java",
+            "name": "Launch ClientFrame",
+            "request": "launch",
+            "mainClass": "GUI.ClientFrame",
+            "projectName": "VS Code JAVA_c82685d"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "test",
+            "projectName": "VS Code JAVA_c82685d"
+        }
+    ]
+}
