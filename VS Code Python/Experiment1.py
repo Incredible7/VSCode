@@ -59,7 +59,7 @@ def fun3():
 def fun4():
     for i in range(0, 1000):
         factor_list = []
-        for j in range(0, i):
+        for j in range(1, i):
             if (i % j == 0):
                 factor_list.append(j)
         if (i == sum(factor_list)):
@@ -107,15 +107,17 @@ def fun72(n):
 
 # 8、利用列表实现筛选法求素数
 # 问题描述：编写程序，输入一个大于 2 的自然数，然后输出小于该数字的所有素数组成的列表。
-def fun8(n):
-    a = [1 for i in range(n)]
-    for i in range(2, n):
-        if (a[i]):
-            for j in range(i * i, n, i):
-                a[j] = 0
-    for m in range(2, n):
-        if (a[m]):
-            print(m)
+def fun8():
+    t = int(input("请输入一个大于2的自然数"))
+    ls = list()  #定义一个列表
+    for j in range(2, t):  #输入数字范围
+        count = 0
+        for i in range(1, j + 1):  #这里范围是从1到该数本身
+            if (j % i == 0):  #如果只有1和本身能除尽计数2次
+                count += 1
+        if (count == 2):  #再判断若2个因数就是素数，否则不是
+            ls.append(j)
+    print(ls)
 
 
 # 9、编写函数：判断回文，也就是正读反读都一样的字符串
@@ -130,8 +132,6 @@ def fun9(str):
 
 # 10、编写函数：随机产生包含 n 个整数的列表，返回一个元组，其中第一个元素为所有参数的平均值，其他元素为所有参数中大于平均值的整数。
 #  例如： 随机产生长度为 3 的列表[2, 1, 3]，输出为（2, 0, 3）
-
-
 def fun10(n):
     alist = []
     blist = []
@@ -148,8 +148,6 @@ def fun10(n):
 
 # 11、编写函数： 一年 365 天， 每周工作 5 天，休息 2 天，休息日水平下降 0.01
 # 工作日要努力到什么程度一年后的水平才与每天努力 1%所取得的效果（即 37.78 倍）一样呢？
-
-
 def fun11():
     power = 1.0
     for i in range(365):
@@ -223,8 +221,6 @@ def fun14_2():
 # 15、字符串与列表推导式的应用
 # 问题描述： 编写程序，生成含有 n 个元素的嵌套列表，即列表的每个元素仍是列表，
 # 要求列表中的元素是长度不超过 m 的数字或字符组成的字符串，并按照字符串长度降序输出结果。
-
-
 def getlen(elem):
     return len(elem)
 
@@ -243,8 +239,6 @@ def create_list(n, m):
 # 16、列表与切片的应用
 # 问题描述：编写程序，生成一个整型列表，输出包含原列表中所有元素的新列表、
 # 包含原列表中所有元素的逆序列表，以及输出具有偶数位置的元素列表。
-
-
 def fun16():
     intlist = [i for i in range(0, 10)]
     print(intlist)
@@ -255,16 +249,9 @@ def fun16():
 # 17、元组的应用
 # 问题描述：编写程序，利用生成器推导式生成包含 n 个整数元素的元组，
 # 每个元素值不大于 m，并过滤掉偶数整数，并输出。
-
-
 def fun17(n, m):
-    TP = [random.randint(0, m) for i in range(0, n)]
-    for i in range(0, len(TP), -1):
-        if TP[i] % 2 == 0:
-            del TP[i]
-    tuple(TP)
-    print(TP)
-
+    a = (random.randrange(1, m, 2) for i in range(n))
+    print(tuple(a))
 
 # 18、字典的应用
 # 问题描述：编写程序，输入任意长度的字符串，统计每个单词出现的次数并存储到字典进行输出。
@@ -301,7 +288,6 @@ def fun20():
     Dic = dict(zip(keys, values))
     print(Dic)
 
-
 # 21、用 Python 实现一个二分查找的函数
 def fun21(aim):
     values = [1, 425, 2, 534, 3, 25, 665, 47, 2, 24]
@@ -316,7 +302,6 @@ def fun21(aim):
             high = mid - 1
         else:
             low = mid + 1
-
 
 # 22、一个列表中保存了一些整数，请输出列表中重复的数字，以及重复的次数
 def fun22():
@@ -350,3 +335,4 @@ def fun24():
         else:
             print("猜小了！您还有", i - 1, "次机会！")
     print("真可惜！答案是", x)
+fun24()
