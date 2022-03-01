@@ -10,31 +10,34 @@
 #include <vector>
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    string convert(string s, int numRows)
+    bool buddyStrings(string s, string goal)
     {
-        if (s.size() <= 2)
-            return s;
-        int flag = 1;
-        int len = 0;
-        vector<string> a;
-        a.resize(numRows);
-        for (int i = 0; len < s.size(); i -= flag, len++) {
-            if (len % (numRows - 1) == 0) //当进行所要求数字的循环时，flag倒置
-                flag = -flag;
-            a[i] += s[len];
+        if (s.size() != goal.size())
+            return false;
+        else if (s.size() == goal.size() == 0)
+            return true;
+        int x = 0, y = 0;
+        int path[128] = {0};
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (s[i] != goal[i])
+                x++;
+            else if (path[s[i]] == 1)
+                y++;                                                              
+            path[s[i]] = 1;
         }
-        string str;
-        for (int j = 0; j < numRows; j++)
-            str += a[j];
-        return str;
+        if (x == 2 || (x == 0 && y > 1))
+            return true;
+        return false;
     }
 };
 
 int main()
 {
-    string s = "PAYPALISHIRING";
     Solution S;
-    cout << S.convert(s, 3);
+    string s = "abcaa", s1 = "abcbb";
+    cout << S.buddyStrings(s, s1);
 }

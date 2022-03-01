@@ -168,6 +168,7 @@ void merge_sort(vector<int> &nums, int l, int r, vector<int> &temp)
         nums[i] = temp[i];
 }
 
+
 //快速排序
 int Partrition(int A[], int low, int high) //每执行一次确定pivot的位置
 {
@@ -195,6 +196,7 @@ void Quick_Sort(int A[], int low, int high)
         return;
     }
 }
+
 
 void quick_sort(vector<int> &nums, int l, int r)
 {

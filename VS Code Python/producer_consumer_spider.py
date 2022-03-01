@@ -14,7 +14,7 @@ def do_craw(url_queue: queue.Queue, html_queue: queue.Queue):
               url_queue.qsize())
         time.sleep(random.randint(1, 2))
 
-
+z
 def do_parse(html_queue: queue.Queue, fout):
     while True:
         html = html_queue.get()

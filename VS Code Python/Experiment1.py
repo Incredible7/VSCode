@@ -66,8 +66,7 @@ def fun4():
             print(f"{i} = {'+'.join(map(str,factor_list))}")
 
 
-# 5、编写程序，生成一个包含 50 个随机整数的列表，然后删除其中所有奇
-# 数（提示：从后向前删除）
+# 5、编写程序，生成一个包含 50 个随机整数的列表，然后删除其中所有奇数（提示：从后向前删除）
 def fun5():
     list1 = []
     for i in range(0, 50):
@@ -78,8 +77,7 @@ def fun5():
     print(list1)
 
 
-# 6、编写程序，生成一个包含 20 个随机整数的列表，然后对其中偶数下标
-# 的元素进行降序排列，奇数下标的元素不变。
+# 6、编写程序，生成一个包含 20 个随机整数的列表，然后对其中偶数下标的元素进行降序排列，奇数下标的元素不变。
 def fun6():
     a = []
     for i in range(0, 20):
@@ -109,13 +107,13 @@ def fun72(n):
 # 问题描述：编写程序，输入一个大于 2 的自然数，然后输出小于该数字的所有素数组成的列表。
 def fun8():
     t = int(input("请输入一个大于2的自然数"))
-    ls = list()  #定义一个列表
-    for j in range(2, t):  #输入数字范围
+    ls = list()  # 定义一个列表
+    for j in range(2, t):  # 输入数字范围
         count = 0
-        for i in range(1, j + 1):  #这里范围是从1到该数本身
-            if (j % i == 0):  #如果只有1和本身能除尽计数2次
+        for i in range(1, j + 1):  # 这里范围是从1到该数本身
+            if (j % i == 0):  # 如果只有1和本身能除尽计数2次
                 count += 1
-        if (count == 2):  #再判断若2个因数就是素数，否则不是
+        if (count == 2):  # 再判断若2个因数就是素数，否则不是
             ls.append(j)
     print(ls)
 
@@ -193,7 +191,7 @@ def fun13_1():
 
 
 def fun13_2():
-    item = [x for x in input("请输入：").split(',')]
+    item = [x for x in input("请输入:").split(',')]
     item.sort()
     print(', '.join(item))
 
@@ -204,15 +202,15 @@ def fun13_2():
 
 
 def fun14_1():
-    setA = eval(input('请输入一个集合：'))
-    setB = eval(input('再输入一个集合：'))
-    print('交集：', setA & setB)
-    print('并集：', setA | setB)
-    print('差集：', setA - setB)
+    setA = eval(input('请输入一个集合:'))
+    setB = eval(input('再输入一个集合:'))
+    print('交集:', setA & setB)
+    print('并集:', setA | setB)
+    print('差集:', setA - setB)
 
 
 def fun14_2():
-    str1 = input("请输入一段以空格为分割的单词字符串：\n")
+    str1 = input("请输入一段以空格为分割的单词字符串:\n")
     list1 = str1.split(' ')
     list2 = set(list1)
     print(sorted(list2))
@@ -253,11 +251,14 @@ def fun17(n, m):
     a = (random.randrange(1, m, 2) for i in range(n))
     print(tuple(a))
 
+
 # 18、字典的应用
 # 问题描述：编写程序，输入任意长度的字符串，统计每个单词出现的次数并存储到字典进行输出。
 # 例如：输入：“I love China”，输出：I：1 love: 1 China: 1
+
+
 def fun18():
-    word = input("请输入语句：").split(' ')
+    word = input("请输入语句:").split(' ')
     values = [0 for i in range(0, len(word))]
     Dic = dict(zip(word, values))
     for i in range(0, len(word)):
@@ -288,6 +289,7 @@ def fun20():
     Dic = dict(zip(keys, values))
     print(Dic)
 
+
 # 21、用 Python 实现一个二分查找的函数
 def fun21(aim):
     values = [1, 425, 2, 534, 3, 25, 665, 47, 2, 24]
@@ -302,6 +304,7 @@ def fun21(aim):
             high = mid - 1
         else:
             low = mid + 1
+
 
 # 22、一个列表中保存了一些整数，请输出列表中重复的数字，以及重复的次数
 def fun22():
@@ -335,4 +338,3 @@ def fun24():
         else:
             print("猜小了！您还有", i - 1, "次机会！")
     print("真可惜！答案是", x)
-fun24()
