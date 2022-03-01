@@ -109,13 +109,13 @@ def fun72(n):
 # 问题描述：编写程序，输入一个大于 2 的自然数，然后输出小于该数字的所有素数组成的列表。
 def fun8():
     t = int(input("请输入一个大于2的自然数"))
-    ls = list()  #定义一个列表
-    for j in range(2, t):  #输入数字范围
+    ls = list()  # 定义一个列表
+    for j in range(2, t):  # 输入数字范围
         count = 0
-        for i in range(1, j + 1):  #这里范围是从1到该数本身
-            if (j % i == 0):  #如果只有1和本身能除尽计数2次
+        for i in range(1, j + 1):  # 这里范围是从1到该数本身
+            if (j % i == 0):  # 如果只有1和本身能除尽计数2次
                 count += 1
-        if (count == 2):  #再判断若2个因数就是素数，否则不是
+        if (count == 2):  # 再判断若2个因数就是素数，否则不是
             ls.append(j)
     print(ls)
 
@@ -154,11 +154,6 @@ def fun11():
         if i % 7 in [0, 6]:
             power = power * (1 - 0.01)
     return power
-
-
-# while (fun11() < 37.78):
-#     x += 0.01
-# print("每天努力的参数是：{:.3f}".format(x))
 
 
 # 12、查找两个字符串首尾交叉的最大子串长度，连接两个字符串，首尾交叉部分只保留一份。例如，1234 和 2347 连接为 12347
@@ -253,6 +248,7 @@ def fun17(n, m):
     a = (random.randrange(1, m, 2) for i in range(n))
     print(tuple(a))
 
+
 # 18、字典的应用
 # 问题描述：编写程序，输入任意长度的字符串，统计每个单词出现的次数并存储到字典进行输出。
 # 例如：输入：“I love China”，输出：I：1 love: 1 China: 1
@@ -288,6 +284,7 @@ def fun20():
     Dic = dict(zip(keys, values))
     print(Dic)
 
+
 # 21、用 Python 实现一个二分查找的函数
 def fun21(aim):
     values = [1, 425, 2, 534, 3, 25, 665, 47, 2, 24]
@@ -302,6 +299,7 @@ def fun21(aim):
             high = mid - 1
         else:
             low = mid + 1
+
 
 # 22、一个列表中保存了一些整数，请输出列表中重复的数字，以及重复的次数
 def fun22():
@@ -335,4 +333,3 @@ def fun24():
         else:
             print("猜小了！您还有", i - 1, "次机会！")
     print("真可惜！答案是", x)
-fun24()

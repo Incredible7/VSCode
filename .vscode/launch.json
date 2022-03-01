@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "externalTerminal"
+            "console": "integratedTerminal"
         },
         {
             "name": "g++.exe - 生成和调试活动文件",

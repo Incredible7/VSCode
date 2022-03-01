@@ -1,5 +1,5 @@
-#include <iostream>
 #include <string>
+#include <vector>
 #include "BinTree.h"
 using namespace std;
 
@@ -7,34 +7,26 @@ const int KEY = 15;
 
 struct HashTable
 {
-    int key; //Õû³ýÊ®Îå
+    int key; //è·³è½¬è¡¨
     int value;
     HashTable *next;
-    HashTable *nextlevel; //À­Á´·¨
+    HashTable *nextlevel;
 };
 
-//¶þ·Ö²éÕÒ
-int BinarySearch(int A[], int value, int low, int high)
+//äºŒåˆ†æŸ¥æ‰¾
+int Bin_Search(vector<int> nums, int value, int low, int high)
 {
     int mid = (low + high) / 2;
-    if (A[mid] == value)
+    if (nums[mid] == value)
         return mid;
-    else if (A[mid] > value)
-        return BinarySearch(A, value, low, mid - 1);
+    else if (nums[mid] > value)
+        return Bin_Search(nums, value, low, mid - 1);
     else
-        return BinarySearch(A, value, mid + 1, high);
+        return Bin_Search(nums, value, mid + 1, high);
 }
 
-// //¶þ²æÊ÷²éÕÒ
-// int BinTreeSearch(BTNode *T, int value)
-// {
-//     BTNode *p = T;
-//     if (p->key != value)
-//         ;
-// }
-
-//É¢ÁÐ²éÕÒ£¨À­Á´·¨£©
-HashTable *HashSearch1(HashTable *H, int value)
+//å“ˆå¸Œè·³è½¬è¡¨æŸ¥æ‰¾
+HashTable *HashSearch(HashTable *H, int value)
 {
     HashTable *p = H;
     while (value % KEY != p->key)
@@ -44,48 +36,35 @@ HashTable *HashSearch1(HashTable *H, int value)
     return p;
 }
 
-//É¢ÁÐ²éÕÒ£¨ÏßÐÔ²éÕÒ·¨£©
-HashTable *HashSearch2(HashTable *H, int value)
-{
-    HashTable *p = H;
-    while (value % KEY != p->key)
-        p = p->next;
-    while (p->value != value)
-        p = p->next;
-    return p;
-}
-
-//KMPËã·¨
-int *buildNext(string P)
-{
-    size_t m = P.size(), j = 0;
-    int *N = new int[m];
-    int t = N[0] = -1;
-    while (j < m - 1)
-        if (0 > t || P[j] == P[t])
-        {
-            j++;
-            t++;
-            N[j] = t;
+// KMPç®—æ³•
+void getNext(string t, vector<int>& next) {
+    int i = 0, j = -1;
+    next.resize(t.size());
+    next[0] = -1;
+    while (i < t.size() - 1) {
+        if (j == -1 || t[i] == t[j]) {
+            next[++i] = ++j;
+        } else {
+            j = next[j];
         }
-        else
-            t = N[t];
-    return N;
+    }
 }
 
-int match(string T, string P) //TÎªÄ¸´®£¬PÎª×Ó´®
-{
-    int *next = buildNext(P);
-    int n = T.size(), i = 0;
-    int m = P.size(), j = 0;
-    while (j < m && i < n)
-        if (0 > j || T[i] == P[j])
-        {
+int KMP_Match(string s, string t, int pos) {
+    int i = pos, j = 0;
+    vector<int> next;
+    getNext(t, next);
+    while (i < s.size() && j < t.size()) {
+        if (s[i] == t[j]) {
             i++;
             j++;
-        }
-        else
+        } else {
             j = next[j];
-    delete[] next;
-    return i - j;
+        }
+        if (j == -1) {
+            j++;
+            i++;
+        }
+    }
+    return j >= t.size() ? i - t.size() : -1;
 }

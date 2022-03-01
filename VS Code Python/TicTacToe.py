@@ -192,7 +192,7 @@ class TicTacToe:
                     return i
 
         move = self.chooseRandomMove(self.corners)
-        if move != None:
+        if move is not None:
             return move
 
         if self.isSpaceFree(self.board, self.middle):
@@ -227,10 +227,6 @@ class TicTacToe:
         sys.exit()
 
 
-<<<<<<< HEAD
-#该处代码只有在作为脚本直接执行时才会被执行
-=======
->>>>>>> f687463bf0f3d063604a36551ec239b8e192ddeb
 if __name__ == "__main__":
     TTT = TicTacToe()
     TTT.startGame()
