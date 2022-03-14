@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-//Ã°ÅÝÅÅÐò
+//Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Bubble_Sort(int A[], int m)
 {
     int x;
@@ -40,7 +40,7 @@ void bubble_sort(vector<int> &nums, int n)
     }
 }
 
-//Ñ¡ÔñÅÅÐò
+//Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Selection_Sort(int A[], int m)
 {
     int x = 0;
@@ -71,7 +71,7 @@ void selection_sort(vector<int> &nums, int n)
     }
 }
 
-//²åÈëÅÅÐò
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void Insertion_Sort(int A[], int m)
 {
     int current, pre;
@@ -98,7 +98,7 @@ void insertion_sort(vector<int> &nums, int n)
     }
 }
 
-//Ï£¶ûÅÅÐò
+//Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ShellSort(int A[], int len) //m==length
 {
     for (int gap = len >> 1; gap > 0; gap = gap >> 1)
@@ -114,22 +114,22 @@ void ShellSort(int A[], int len) //m==length
     }
 }
 
-//¹é²¢ÅÅÐò
-int *B = (int *)malloc(9 * sizeof(int)); //¸¨ÖúÊý×é
+//ï¿½é²¢ï¿½ï¿½ï¿½ï¿½
+int *B = (int *)malloc(9 * sizeof(int)); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 void Merge(int A[], int low, int mid, int high)
 {
     int i, j, k;
-    for (k = low; k <= high; k++) //¸ø¸¨Öú¿Õ¼ä¸³Öµ
+    for (k = low; k <= high; k++) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ä¸³Öµ
         B[k] = A[k];
-    for (i = low, j = mid + 1, k = i; i <= mid && j <= high; k++) //¸øÁ½¸ö·Ö×éÕûÌåÅÅÐò
+    for (i = low, j = mid + 1, k = i; i <= mid && j <= high; k++) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         if (B[i] <= B[j])
             A[k] = B[i++];
         else
             A[k] = B[j++];
     }
-    //ÊýÁ¿½Ï¶àµÄÄÇ¸öÊý×é·ÖÁ¿¸³Öµ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     while (i <= mid)
         A[k++] = B[i++];
     while (j <= high)
@@ -169,13 +169,13 @@ void merge_sort(vector<int> &nums, int l, int r, vector<int> &temp)
 }
 
 
-//¿ìËÙÅÅÐò
-int Partrition(int A[], int low, int high) //Ã¿Ö´ÐÐÒ»´ÎÈ·¶¨pivotµÄÎ»ÖÃ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int Partrition(int A[], int low, int high) //Ã¿Ö´ï¿½ï¿½Ò»ï¿½ï¿½È·ï¿½ï¿½pivotï¿½ï¿½Î»ï¿½ï¿½
 {
     int pivot = A[low];
     while (low < high)
     {
-        while (low < high && A[high] >= pivot) //¸ü»»´óÓÚÐ¡ÓÚºÅ¿ÉÒÔ¸Ä±äÅÅÐò·½Ïò
+        while (low < high && A[high] >= pivot) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ÚºÅ¿ï¿½ï¿½Ô¸Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             high--;
         A[low] = A[high];
         while (low < high && A[low] <= pivot)
@@ -217,8 +217,8 @@ void quick_sort(vector<int> &nums, int l, int r)
     quick_sort(nums, first + 1, r);
 }
 
-//¶ÑµÄËã·¨
-//ÓÉÏÂÖÁÉÏµÄ¶ÑÓÐÐò»¯£¨ÉÏ¸¡£©µÄÊµÏÖ
+//ï¿½Ñµï¿½ï¿½ã·¨
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¶ï¿½ï¿½ï¿½ï¿½ò»¯£ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 void swim(int A[], int k)
 {
     while (k > 1 && A[k / 2] < A[k])
@@ -227,7 +227,7 @@ void swim(int A[], int k)
         k = k / 2;
     }
 }
-//ÓÉÉÏÖÁÏÂµÄ¶ÑÓÐÐò»¯£¨ÏÂ³Á£©µÄÊµÏÖ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄ¶ï¿½ï¿½ï¿½ï¿½ò»¯£ï¿½ï¿½Â³ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 void sink(int A[], int k, int len)
 {
     while (2 * k + 1 < len)
@@ -242,7 +242,7 @@ void sink(int A[], int k, int len)
     }
 }
 
-//¶ÑÅÅÐò
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void HeapSort(int A[], int len)
 {
     int N = len - 1;
@@ -255,7 +255,7 @@ void HeapSort(int A[], int len)
     }
 }
 
-//¶ÑÅÅÐòÒ×¶®°æ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¶ï¿½ï¿½ï¿½
 void Heapify(int A[], int len, int k)
 {
     if (k >= len)
@@ -292,12 +292,12 @@ void HeapSort01(int A[], int len)
     }
 }
 
-//¼ÆÊýÅÅÐò
-//Í°ÅÅÐò
-//»ùÊýÅÅÐò
-int maxbit(int data[], int len) //¸¨ÖúÊý×é£¬ÇóÊý×éµÄ×î´óÎ»Êý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//Í°ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int maxbit(int data[], int len) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 {
-    int maxData = data[0]; //×î´óÊý
+    int maxData = data[0]; //ï¿½ï¿½ï¿½ï¿½ï¿½
     for (int i = 1; i < len; i++)
     {
         if (maxData < data[i])
@@ -318,21 +318,21 @@ void RadixSort(int A[], int len)
 {
     int d = maxbit(A, len);
     int *tmp = new int[len];
-    int *count = new int[10]; //¼ÆÊýÆ÷
+    int *count = new int[10]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     int i, j, k;
     int radix = 1;
-    for (i = 0; i <= d; i++) //½øÐÐd´ÎÅÅÐò
+    for (i = 0; i <= d; i++) //ï¿½ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         for (j = 0; j < 10; j++)
-            count[j] = 0; //Ã¿´Î·ÖÅäÇ°Çå¿Õ¼ÆÊýÆ÷
+            count[j] = 0; //Ã¿ï¿½Î·ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½
         for (j = 0; j < len; j++)
         {
             k = (A[j] / radix) % 10;
             count[k]++;
         }
         for (j = 1; j < 10; j++)
-            count[j] = count[j - 1] + count[j]; //½«tmpÖÐµÄÎ»ÖÃÒÀ´Î·ÖÅä¸øÃ¿¸öÍ°
-        for (j = len - 1; j >= 0; j--)          //½«ËùÓÐÍ°ÖÐ¼ÇÂ¼ÒÀ´ÎÊÕ¼¯µ½tmpÖÐ
+            count[j] = count[j - 1] + count[j]; //ï¿½ï¿½tmpï¿½Ðµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Í°
+        for (j = len - 1; j >= 0; j--)          //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½Ð¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½tmpï¿½ï¿½
         {
             k = (A[j] / radix) % 10;
             tmp[count[k] - 1] = A[j];

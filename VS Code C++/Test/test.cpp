@@ -1,43 +1,22 @@
-#include <algorithm>
-#include <cmath>
-#include <ctime>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "Algorithm_in_Leetcode.h"
 using namespace std;
 
-class Solution
-{
-public:
-    bool buddyStrings(string s, string goal)
-    {
-        if (s.size() != goal.size())
-            return false;
-        else if (s.size() == goal.size() == 0)
-            return true;
-        int x = 0, y = 0;
-        int path[128] = {0};
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (s[i] != goal[i])
-                x++;
-            else if (path[s[i]] == 1)
-                y++;                                                              
-            path[s[i]] = 1;
-        }
-        if (x == 2 || (x == 0 && y > 1))
-            return true;
-        return false;
-    }
+struct Param{
+    string name;
+    int age;
 };
 
-int main()
-{
-    Solution S;
-    string s = "abcaa", s1 = "abcbb";
-    cout << S.buddyStrings(s, s1);
+void* param_test(void* p){
+    Param* param = (Param*)p;
+    cout<<"hello "<<param->name<<endl;
+    cout<<"age = "<<param->age<<endl;
+}
+
+int main() {
+    pthread_t tid;
+    Param*ptr = new Param();
+    ptr->name = "pthread";
+    ptr->age = 20;
+    pthread_create(&tid, NULL, param_test, ptr);
+    pthread_join(tid, NULL);
 }

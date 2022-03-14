@@ -192,7 +192,7 @@ class TicTacToe:
                     return i
 
         move = self.chooseRandomMove(self.corners)
-        if move != None:
+        if move is not None:
             return move
 
         if self.isSpaceFree(self.board, self.middle):
