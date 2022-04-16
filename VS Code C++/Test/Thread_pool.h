@@ -8,7 +8,7 @@
 #define NULL 0
 #endif
 
-#define PUBLIC
+#define PUBLIC          //便于后期改变函数定义或者生存环境
 
 PUBLIC struct ctrip_task {
     struct ctrip_task *pNext;
@@ -22,13 +22,13 @@ struct ctrip_thread_info {
     int tasknum;
     struct ctrip_task *tasks;
     pthread_t *threadid;
-    pthread_mutex_t mutex;
-    pthread_cond_t cond;
+    pthread_mutex_t mutex; //互斥量
+    pthread_cond_t cond;   //条件变量
 };
 
 /*
     初始化线程池线程数目
-    @param thread_num线程数目，默认为8个
+    @param thread_num线程数目，默认为5个
 */
 PUBLIC void ctrip_init_thread_pool(int thread_num);
 
@@ -57,6 +57,6 @@ PUBLIC void ctrip_thread_pool_do_task(struct ctrip_task *t);
     线程函数
     @param thread_param线程参数
 */
-void *ctrip_destroy_routine(void *thread_param);
+void *ctrip_thread_routine(void *thread_param);
 
 #endif
