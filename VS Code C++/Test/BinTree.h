@@ -33,8 +33,8 @@ BTNode* ll_rotate(BTNode* y)
     y->left = x->right;
     x->right = y;
  
-    y->height = max(height(y->left), height(y->right)) + 1;
-    x->height = max(height(x->left), height(x->right)) + 1;
+    y->height = std::max(height(y->left), height(y->right)) + 1;
+    x->height = std::max(height(x->left), height(x->right)) + 1;
  
     return x;
 }
@@ -45,8 +45,8 @@ BTNode* rr_rotate(BTNode* y)
     y->right = x->left;
     x->left = y;
  
-    y->height = max(height(y->left), height(y->right)) + 1;
-    x->height = max(height(x->left), height(x->right)) + 1;
+    y->height = std::max(height(y->left), height(y->right)) + 1;
+    x->height = std::max(height(x->left), height(x->right)) + 1;
  
     return x;
 }
@@ -71,28 +71,28 @@ BTNode* insert(BTNode* node, int key)
     else
         return node;
  
-    node->height = 1 + max(height(node->left), height(node->right));
+    node->height = 1 + std::max(height(node->left), height(node->right));
  
  
     int balance = getBalance(node);
  
  
  
-    if (balance > 1 && key < node->left->key) //LLÐÍ
+    if (balance > 1 && key < node->left->key) //LLï¿½ï¿½
         return ll_rotate(node);
  
  
-    if (balance < -1 && key > node->right->key)     //RRÐÍ
+    if (balance < -1 && key > node->right->key)     //RRï¿½ï¿½
         return rr_rotate(node);
  
  
-    if (balance > 1 && key > node->left->key)     //LRÐÍ
+    if (balance > 1 && key > node->left->key)     //LRï¿½ï¿½
     {
         node->left = rr_rotate(node->left);
         return ll_rotate(node);
     }
  
-    if (balance < -1 && key < node->right->key)     //RLÐÍ
+    if (balance < -1 && key < node->right->key)     //RLï¿½ï¿½
     {
         node->right = ll_rotate(node->right);
         return rr_rotate(node);
@@ -153,25 +153,25 @@ BTNode* deleteNode(BTNode* root, int key)
     if (root == NULL)
         return root;
  
-    root->height = 1 + max(height(root->left), height(root->right));
+    root->height = 1 + std::max(height(root->left), height(root->right));
  
     int balance = getBalance(root);
  
  
-    if (balance > 1 && getBalance(root->left) >= 0) //LLÐÍ
+    if (balance > 1 && getBalance(root->left) >= 0) //LLï¿½ï¿½
         return ll_rotate(root);
  
  
-    if (balance > 1 && getBalance(root->left) < 0) //LRÐÍ
+    if (balance > 1 && getBalance(root->left) < 0) //LRï¿½ï¿½
     {
         root->left = rr_rotate(root->left);
         return ll_rotate(root);
     }
  
-    if (balance < -1 && getBalance(root->right) <= 0) //RRÐÍ
+    if (balance < -1 && getBalance(root->right) <= 0) //RRï¿½ï¿½
         return rr_rotate(root);
  
-    if (balance < -1 && getBalance(root->right) > 0)  //RlÐÍ
+    if (balance < -1 && getBalance(root->right) > 0)  //Rlï¿½ï¿½
     {
         root->right = ll_rotate(root->right);
         return rr_rotate(root);

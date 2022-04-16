@@ -5,8 +5,7 @@ using namespace std;
 
 const int KEY = 15;
 
-struct HashTable
-{
+struct HashTable {
     int key; //跳转表
     int value;
     HashTable *next;
@@ -14,8 +13,7 @@ struct HashTable
 };
 
 //二分查找
-int Bin_Search(vector<int> nums, int value, int low, int high)
-{
+int Bin_Search(vector<int> nums, int value, int low, int high) {
     int mid = (low + high) / 2;
     if (nums[mid] == value)
         return mid;
@@ -26,8 +24,7 @@ int Bin_Search(vector<int> nums, int value, int low, int high)
 }
 
 //哈希跳转表查找
-HashTable *HashSearch(HashTable *H, int value)
-{
+HashTable *HashSearch(HashTable *H, int value) {
     HashTable *p = H;
     while (value % KEY != p->key)
         p = p->next;
@@ -37,7 +34,7 @@ HashTable *HashSearch(HashTable *H, int value)
 }
 
 // KMP算法
-void getNext(string t, vector<int>& next) {
+void getNext(string t, vector<int> &next) {
     int i = 0, j = -1;
     next.resize(t.size());
     next[0] = -1;
@@ -50,13 +47,13 @@ void getNext(string t, vector<int>& next) {
     }
 }
 
-int KMP_Match(string s, string t, int pos) {
+int KMP_Match(string s, string t, int pos) {    //s母串，t子串
     int i = pos, j = 0;
     vector<int> next;
     getNext(t, next);
     while (i < s.size() && j < t.size()) {
         if (s[i] == t[j]) {
-            i++;
+            i++; 
             j++;
         } else {
             j = next[j];
